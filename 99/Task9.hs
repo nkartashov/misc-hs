@@ -1,3 +1,5 @@
+module Task9 where
+
 pack [] = []
 pack l = helper [] l
   where
@@ -6,8 +8,3 @@ pack l = helper [] l
     helper ((x:xs):xxs) (y:ys)
       | x == y = helper ((y:x:xs):xxs) ys
       | otherwise = helper ([y]:(x:xs):xxs) ys
-
-encode :: (Eq a) => [a] -> [(Int, a)]
-encode = map helper . pack
-  where 
-    helper l@(x:_) = (length l, x)
